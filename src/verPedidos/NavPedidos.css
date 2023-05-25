@@ -1,0 +1,32 @@
+nav{
+    background-color: rgba(145, 97, 8, 0.644);
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    
+}
+ul{
+    display:flex ;
+    flex-direction: row;
+    
+    margin-right: 15px;
+}
+li{
+    border-radius:  0 15px 0 15px;
+    background-color: rgb(209, 151, 141);
+    padding: 5px;
+    list-style: none;
+    align-items: center;
+    border: 3px solid brown;
+    margin-right: 15px;
+}
+a{
+    color: brown;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+h1{
+    color: brown;
+    margin-left: 15px;
+}
