@@ -3,6 +3,6 @@ import "./Home.css"
 
 export default function BotonIng ({dato,infoPath}){
     return(
-        <Link className="button" type="submit">{dato}</Link>
+        <Link  type="submit" className="button" to={infoPath}>{dato}</Link>
     )
 }

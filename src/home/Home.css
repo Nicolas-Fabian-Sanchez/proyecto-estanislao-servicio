@@ -37,8 +37,9 @@ label{
     margin: 30px auto
     
 }
+
 .button:hover{
-    font-size: 25px;
+    
     background-color: brown ;
     border: 2px solid rgb(32, 31, 31);
     color: rgb(32, 31, 31);

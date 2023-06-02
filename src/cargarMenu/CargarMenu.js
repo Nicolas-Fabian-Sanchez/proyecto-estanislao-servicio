@@ -1,9 +1,10 @@
 import  NavPedidos from "../verPedidos/NavPedidos";
 import BotonIng from "../home/Boton"
 import "./fomulario.css"
+import { useState } from "react";
 
 export default function CargarMenu(){
-
+  const [mensajeOculto,setMensajeOculto]=useState(true);
   const cargarMenu=async (event)=>{
     event.preventDefault();
     const form=JSON.stringify({
@@ -12,7 +13,7 @@ export default function CargarMenu(){
         "precio":event.target[2].value
          })
    
-    const response= await fetch("http://localhost:4001/cargarMenu",{
+    const response= await fetch("https://api-estanislao.onrender.com/cargarMenu",{
         method:'POST',
         body:form,
         headers:{
@@ -20,22 +21,31 @@ export default function CargarMenu(){
             
         }
     })
-  
+    if (response.ok){
+        setMensajeOculto(false);
+    }
 }
      return(
         <header>
              <NavPedidos/>
              <>
+             { mensajeOculto == true ?
               <form  className="formulario" onSubmit={(event)=>{cargarMenu(event)}} method="POST">
                   <legend>INGRESE NUEVO MENU AQUI:</legend>
-                  <label>Tipo :</label>
-                  <input></input>
-                  <label>Variedad :</label>
-                  <input></input>
-                  <label>Precio :</label>
-                  <input></input>
+                  <label htmlFor="tipo">Tipo :</label>
+                  <input type="texto" id="tipo" name="tipo"></input>
+                  <label htmlFor="variedad">Variedad :</label>
+                  <input type="texto" id="variedad" name="variedad" ></input>
+                  <label htmlFor="precio">Precio :</label>
+                  <input type="texto" id="precio" name="precio"></input>
                   <BotonIng dato="Carga Menu"/>
-              </form>
+              </form>:
+              <div className="formulario">
+                <button type="button" className="button" id="botonMensaje"onClick={()=> setMensajeOculto(true)}>
+                <strong>Menu Cargado con EXITO!!!</strong>
+                </button>
+              </div>
+              }
              </>
         </header>
       )

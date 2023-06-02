@@ -1,6 +1,28 @@
 body{
     background-color: black;
+    
+    
 }
-h2{
+.centrado{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.mesas{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.mesa{
     color: aliceblue;
+}
+.conteiner{
+    display: flex;
+}
+.precio{
+    list-style-type: none;
+    color: rgb(226, 128, 128);
+    font-weight: bold;
 }

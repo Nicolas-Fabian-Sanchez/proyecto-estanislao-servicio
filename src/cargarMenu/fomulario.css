@@ -6,7 +6,7 @@
   width: 600px;
   margin: 0 auto;
 }
-.button{
+.boton{
   cursor: pointer;
   border-radius:15px ;
   border: 2px solid brown;
@@ -20,4 +20,9 @@
   justify-content: center;
   margin: 30px auto;
   text-align: center;
+}
+#botonMensaje{
+ width: 300px;
+ color: rgb(44, 202, 30);
+
 }

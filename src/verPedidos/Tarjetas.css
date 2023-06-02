@@ -1,0 +1,52 @@
+.tarjeta{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(104, 104, 109, 0.192);
+    border: 2px solid brown;
+    border-radius: 0 15px 0 15px;;
+    padding: 10px;
+    margin: 20px;
+    width: 300px;
+}
+.tarjeta:hover{
+    padding: 30px;
+}
+
+h3{
+    color: brown;
+    text-align: center;
+    text-decoration: overline;
+}
+
+h4{
+    color: rgb(226, 128, 128);
+    text-align: center;
+}
+
+p{
+    color: aliceblue;
+}
+.botonTarjeta{
+    border-radius: 5px;
+    border: 1px solid brown;
+    padding: 10px;
+    width: 50%;
+    align-self: center;
+    color: rgb(226, 128, 128);
+    font-weight: bold;
+}
+#listapedido{
+    list-style: circle;
+}
+.parrafo{
+    font-weight: bold;
+    color: rgb(226, 128, 128);
+    text-align: center;
+}
+.pagar{
+    color: brown;
+    text-decoration: none;
+}
+.pedido{
+    text-decoration: underline;
+}
