@@ -1,3 +1,4 @@
+import { useState } from "react";
 import NavPedidos from "../verPedidos/NavPedidos";
 import BotonIng from "../home/Boton";
 import "./CambiarMenu.css";
@@ -5,43 +6,55 @@ import "./CambiarMenu.css";
 
 
 export default function CambiarPrecio(){
-    //const [mensajeOculto,setMensajeOculto]=useState(true);
-    /*let [datos,setDatos] = useState([]);
+    const [mensajeOculto,setMensajeOculto]=useState(true);
+    let [datos,setDatos] = useState();
 
-    const traerInfo=async()=>{
-          await fetch("https://api-estanislao.onrender.com/buscarMenu/${variedad}")
+    const traerInfo=async(event)=>{
+        event.preventDefault();
+        console.log(event.target.value)
+        let plato= JSON.stringify(event.target.value)
+        await fetch(`https://api-estanislao.onrender.com/buscarMenu/${plato}}`)
           .then((res)=>res.json())
           .then((dato)=>setDatos(dato))
           .catch((error)=>document.write(`se produjo un error ${error}`))
           console.log(datos)
+          return setMensajeOculto(false)
     }
-    useEffect(()=>{
-     traerInfo();
+    const cambiarInfo=async(event)=>{
+        event.preventDefault();
+        let formData = new FormData(event.target);
+        await fetch ("https://api-estanislao.onrender.com/cambiarPrecio",{
+            method:"PUT",
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body:formData
+        })
+        if(Response.ok){
+            return setMensajeOculto(true)
+        }
+    }
 
-    },[])
-    
-    */
-    
-    return( 
+   return( 
         <header>
             <NavPedidos/>
             <>
-            {/*{ mensajeOculto == true ?*/}
-              <form className="formulario">
+            { mensajeOculto == true ?
+              <form className="formulario" onSubmit={(event)=>{traerInfo(event)}} method="GET">
                     <legend>INGRESE MENU A CAMBIAR AQUI:</legend>
-                    <input className="input" placeholder="Ingrese nombre del menu"></input><BotonIng dato="Buscar Menu"/*onClick={()=> setMensajeOculto(false)}*//>
-              </form>
-              <form  className="formulario"  method="PUT" /*onSubmit={(event)=>{CambiarMenu(event)}}*/>
+                    <input className="input" placeholder="Ingrese nombre del menu"></input><BotonIng dato="Buscar Menu"/>
+              </form>:
+              <form  className="formulario"  onSubmit={(event)=>{cambiarInfo(event)}} >
                   <legend>INGRESE LOS CAMBIOS DESEADOS:</legend>
                   <label htmlFor="tipo">Tipo :</label>
-                  <input type="texto" id="tipo" name="tipo"></input>
+                  <input type="texto" id="tipo" name="tipo" value={datos.tipo}></input>
                   <label htmlFor="variedad">Variedad :</label>
-                  <input type="texto" id="variedad" name="variedad" ></input>
+                  <input type="texto" id="variedad" name="variedad" value={datos.variedad}></input>
                   <label htmlFor="precio">Precio :</label>
-                  <input type="texto" id="precio" name="precio"></input>
+                  <input type="texto" id="precio" name="precio" value={datos.precio}></input>
                   <BotonIng dato="Cambiar" /*onClick={()=> setMensajeOculto(true)}*//>
               </form>
-            
+             }
             </>
             
 
