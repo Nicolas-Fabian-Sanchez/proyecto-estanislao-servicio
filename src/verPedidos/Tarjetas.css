@@ -1,3 +1,8 @@
+.contenedor{
+    display: block;
+    justify-content: center;
+}
+
 .tarjeta{
     display: flex;
     flex-direction: column;
@@ -6,10 +11,10 @@
     border-radius: 0 15px 0 15px;;
     padding: 10px;
     margin: 20px;
-    width: 300px;
+    width: 350px;
 }
 .tarjeta:hover{
-    padding: 30px;
+    background-color:rgba(247, 247, 250, 0.253) ;
 }
 
 h3{
@@ -34,6 +39,27 @@ p{
     align-self: center;
     color: rgb(226, 128, 128);
     font-weight: bold;
+    cursor: pointer;
+}
+.botonTarjeta:hover{
+    background-color: brown;
+}
+#eliminar{
+    background-color: rgb(59, 223, 100);
+    padding: 20px;
+    border-radius: 15px;
+    position:fixed;
+    top:0%;
+    right:35%;
+    margin-right:0 auto ;
+}
+#eliminar:hover{
+    background-color:rgb(5, 248, 66) ;
+    padding: 22px;
+}
+.colorA{
+    color:aliceblue;
+    font-size: 20px;
 }
 #listapedido{
     list-style: circle;

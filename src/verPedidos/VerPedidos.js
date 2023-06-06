@@ -4,8 +4,8 @@ import  NavPedidos from "./NavPedidos.js"
 import Tarjetas from "./tarjetas";
 
 export default function VerPedidos(){
-
-       let [datos,setDatos] = useState([]);
+      
+      let [datos,setDatos] = useState([]);
 
        const traerInfo=async()=>{
              await fetch("https://api-estanislao.onrender.com/traerPedido")
@@ -18,6 +18,7 @@ export default function VerPedidos(){
         traerInfo();
 
        },[])
+       
        return(
         <>
          <NavPedidos/>

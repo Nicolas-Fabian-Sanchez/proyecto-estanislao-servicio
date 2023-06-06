@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function CargarMenu(){
   const [mensajeOculto,setMensajeOculto]=useState(true);
-  const cargarMenu=async (event)=>{
+  const CargarMenu=async (event)=>{
     event.preventDefault();
     const form=JSON.stringify({
         "tipo":event.target[0].value,
@@ -30,7 +30,7 @@ export default function CargarMenu(){
              <NavPedidos/>
              <>
              { mensajeOculto == true ?
-              <form  className="formulario" onSubmit={(event)=>{cargarMenu(event)}} method="POST">
+              <form  className="formulario" onSubmit={(event)=>{CargarMenu(event)}} method="POST">
                   <legend>INGRESE NUEVO MENU AQUI:</legend>
                   <label htmlFor="tipo">Tipo :</label>
                   <input type="texto" id="tipo" name="tipo"></input>

@@ -1,6 +1,6 @@
 body{
     background-color: black;
-    
+  
     
 }
 .centrado{
@@ -8,18 +8,22 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 .mesas{
     display:flex;
     flex-direction:row;
     flex-wrap: wrap;
     align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 .mesa{
     color: aliceblue;
 }
 .conteiner{
     display: flex;
+    
 }
 .precio{
     list-style-type: none;

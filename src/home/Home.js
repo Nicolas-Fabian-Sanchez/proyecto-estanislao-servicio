@@ -8,8 +8,8 @@ export default function Home(){
                 <legend>"Bienvenido a Estanislao"</legend>
                 <label htmlFor="usuario">Ingrese Nombre de Usuario</label>
                 <input type="texto" id="usuario" name="usuario" ></input>
-                <label htmlFor="contraseña">Ingrese su contraseña</label>
-                <input type="password" id="contraseña" name="contraseña" ></input>
+                <label htmlFor="contrasenia">Ingrese su contraseña</label>
+                <input type="password" id="contrasenia" name="contrasenia" ></input>
                 <BotonIng dato="INGRESAR" infoPath="./VerPedidos"/>
             </form>
         </header>
