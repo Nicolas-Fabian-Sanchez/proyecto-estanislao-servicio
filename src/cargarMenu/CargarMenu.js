@@ -2,6 +2,7 @@ import  NavPedidos from "../verPedidos/NavPedidos";
 import BotonIng from "../home/Boton"
 import "./fomulario.css"
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function CargarMenu(){
   console.log("me hiccieron clik")
@@ -10,12 +11,13 @@ export default function CargarMenu(){
   const cargarMenu=async (event)=>{
     console.log("estoy conectado")
     event.preventDefault();
-    /*const form=JSON.stringify({
+    const form=JSON.stringify({
         "tipo":event.target[0].value,
         "variedad":event.target[1].value,
         "precio":event.target[2].value
-         })*/
-    const form= new FormData(event.target)
+         })
+    console.log(form)
+    /*const form=JSON.stringify(new FormData(event.target))*/
     const response= await fetch("https://api-estanislao.onrender.com/cargarMenu",{
         method:'POST',
         body:form,
@@ -41,12 +43,12 @@ export default function CargarMenu(){
                   <label htmlFor="precio">Precio :</label>
                   <input type="texto" id="precio" name="precio"></input>
                   {/*<BotonIng dato="Carga Menu" infoPath="/CargarMenu"/>*/}
-                  <input type="submit" value="enviar"/>
+                  <input type="submit" value="CARGAR" className="boton"/>
               </form>:
               <div className="formulario">
-                <button type="button" className="button" id="botonMensaje"onClick={()=> setMensajeOculto(true)}>
+                <Link to="/CargarMenu" className="button" id="botonMensaje"onClick={()=> setMensajeOculto(true)}>
                 <strong>Menu Cargado con EXITO!!!</strong>
-                </button>
+                </Link>
               </div>
               }
              </>

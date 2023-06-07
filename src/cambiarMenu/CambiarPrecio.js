@@ -11,9 +11,9 @@ export default function CambiarPrecio(){
 
     const llamarInfo=async(event)=>{
         event.preventDefault();
-        console.log(event.target.value)
-        let plato= event.target.value
-        await fetch(`https://api-estanislao.onrender.com/buscarMenu/${plato}}`)
+        console.log(event.target[0].value)
+        let plato=event.target[0].value 
+        await fetch(`https://api-estanislao.onrender.com/buscarMenu/${plato}`)
           .then((res)=>res.json())
           .then((dato)=>setDatos(dato))
           .catch((error)=>document.write(`se produjo un error ${error}`))
@@ -22,7 +22,13 @@ export default function CambiarPrecio(){
     }
     const cambiarInfo=async(event)=>{
         event.preventDefault();
-        let formData = new FormData(event.target);
+        const formData=JSON.stringify({
+            "tipo":event.target[0].value,
+            "variedad":event.target[1].value,
+            "precio":event.target[2].value
+             })
+        console.log(formData)
+        /*let formData = new FormData(event.target);*/
         await fetch ("https://api-estanislao.onrender.com/cambiarPrecio",{
             method:"PUT",
             headers:{
@@ -45,7 +51,8 @@ export default function CambiarPrecio(){
                     <label htmlFor="filtro">INGRESE MENU A CAMBIAR AQUI:</label>
                     <input className="input" placeholder="Ingrese nombre del menu" type="text" id="filtro"name="filtro">
                     </input>
-                    <BotonIng dato="Buscar Menu"/>
+                    <input type="submit" value="BUSCAR"  className="boton"/>
+                    
               </form>:
               <form  className="formulario"  onSubmit={(event)=>{cambiarInfo(event)}} >
                   <legend>INGRESE LOS CAMBIOS DESEADOS:</legend>
@@ -55,7 +62,8 @@ export default function CambiarPrecio(){
                   <input type="texto" id="variedad" name="variedad" value={datos.variedad}></input>
                   <label htmlFor="precio">Precio :</label>
                   <input type="texto" id="precio" name="precio" value={datos.precio}></input>
-                  <BotonIng dato="Cambiar" /*onClick={()=> setMensajeOculto(true)}*//>
+                  <input type="submit" value="CAMBIAR"  className="boton"/>
+                  {/*<BotonIng dato="Cambiar" onClick={()=> setMensajeOculto(true)}/>*/}
               </form>
              }
             </>
