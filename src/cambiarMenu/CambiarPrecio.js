@@ -9,10 +9,10 @@ export default function CambiarPrecio(){
     const [mensajeOculto,setMensajeOculto]=useState(true);
     let [datos,setDatos] = useState();
 
-    const traerInfo=async(event)=>{
+    const llamarInfo=async(event)=>{
         event.preventDefault();
         console.log(event.target.value)
-        let plato= JSON.stringify(event.target.value)
+        let plato= event.target.value
         await fetch(`https://api-estanislao.onrender.com/buscarMenu/${plato}}`)
           .then((res)=>res.json())
           .then((dato)=>setDatos(dato))
@@ -35,14 +35,17 @@ export default function CambiarPrecio(){
         }
     }
 
+
    return( 
         <header>
             <NavPedidos/>
             <>
             { mensajeOculto == true ?
-              <form className="formulario" onSubmit={(event)=>{traerInfo(event)}} method="GET">
-                    <legend>INGRESE MENU A CAMBIAR AQUI:</legend>
-                    <input className="input" placeholder="Ingrese nombre del menu"></input><BotonIng dato="Buscar Menu"/>
+              <form className="formulario" onSubmit={(event)=>{llamarInfo(event)}} method="GET">
+                    <label htmlFor="filtro">INGRESE MENU A CAMBIAR AQUI:</label>
+                    <input className="input" placeholder="Ingrese nombre del menu" type="text" id="filtro"name="filtro">
+                    </input>
+                    <BotonIng dato="Buscar Menu"/>
               </form>:
               <form  className="formulario"  onSubmit={(event)=>{cambiarInfo(event)}} >
                   <legend>INGRESE LOS CAMBIOS DESEADOS:</legend>

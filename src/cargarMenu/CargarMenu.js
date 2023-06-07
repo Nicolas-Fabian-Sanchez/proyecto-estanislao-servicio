@@ -8,7 +8,7 @@ export default function CargarMenu(){
   const [mensajeOculto,setMensajeOculto]=useState(true);
  
   const cargarMenu=async (event)=>{
-   
+    console.log("estoy conectado")
     event.preventDefault();
     /*const form=JSON.stringify({
         "tipo":event.target[0].value,
@@ -21,8 +21,7 @@ export default function CargarMenu(){
         body:form,
         headers:{
             'Content-Type': 'application/json',
-            
-        }
+            }
     })
     if (response.ok){
         setMensajeOculto(false);
@@ -41,7 +40,8 @@ export default function CargarMenu(){
                   <input type="texto" id="variedad" name="variedad" ></input>
                   <label htmlFor="precio">Precio :</label>
                   <input type="texto" id="precio" name="precio"></input>
-                  <BotonIng dato="Carga Menu" infoPath="/CargarMenu"/>
+                  {/*<BotonIng dato="Carga Menu" infoPath="/CargarMenu"/>*/}
+                  <input type="submit" value="enviar"/>
               </form>:
               <div className="formulario">
                 <button type="button" className="button" id="botonMensaje"onClick={()=> setMensajeOculto(true)}>
