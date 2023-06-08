@@ -1,6 +1,5 @@
 import { useState } from "react";
 import NavPedidos from "../verPedidos/NavPedidos";
-import BotonIng from "../home/Boton";
 import "./CambiarMenu.css";
 
 
@@ -8,7 +7,11 @@ import "./CambiarMenu.css";
 export default function CambiarPrecio(){
     const [mensajeOculto,setMensajeOculto]=useState(true);
     let [datos,setDatos] = useState();
-
+    /*const[form,setForm]=useState({//para actualizar los datos del formulario
+        tipo:'',
+        variedad:'',
+        precio:''
+    });*/
     const llamarInfo=async(event)=>{
         event.preventDefault();
         console.log(event.target[0].value)
@@ -17,9 +20,14 @@ export default function CambiarPrecio(){
           .then((res)=>res.json())
           .then((dato)=>setDatos(dato))
           .catch((error)=>document.write(`se produjo un error ${error}`))
-          console.log(datos)
+          //console.log(datos)
           return setMensajeOculto(false)
     }
+    //para poder actualizar el formulario realizo esta funcion atra vez del evento onChange
+    /*const handleChange= (e)=>{
+        setForm({...form,[e.target.name]:e.target.value})
+    };*/
+    
     const cambiarInfo=async(event)=>{
         event.preventDefault();
         const formData=JSON.stringify({
@@ -27,7 +35,7 @@ export default function CambiarPrecio(){
             "variedad":event.target[1].value,
             "precio":event.target[2].value
              })
-        console.log(formData)
+        //console.log(formData)
         /*let formData = new FormData(event.target);*/
         await fetch ("https://api-estanislao.onrender.com/cambiarPrecio",{
             method:"PUT",
@@ -36,9 +44,9 @@ export default function CambiarPrecio(){
             },
             body:formData
         })
-        if(Response.ok){
-            return setMensajeOculto(true)
-        }
+        
+        return setMensajeOculto(true),
+        alert("El Precio Fue Actualizado con EXITO")
     }
 
 
@@ -55,13 +63,13 @@ export default function CambiarPrecio(){
                     
               </form>:
               <form  className="formulario"  onSubmit={(event)=>{cambiarInfo(event)}} >
-                  <legend>INGRESE LOS CAMBIOS DESEADOS:</legend>
+                  <legend>INGRESE EL PRECIO ACTUALIZADO DEL PLATO:</legend>
                   <label htmlFor="tipo">Tipo :</label>
                   <input type="texto" id="tipo" name="tipo" value={datos.tipo}></input>
                   <label htmlFor="variedad">Variedad :</label>
-                  <input type="texto" id="variedad" name="variedad" value={datos.variedad}></input>
+                  <input type="texto" id="variedad" name="variedad" value={datos.variedad} ></input>
                   <label htmlFor="precio">Precio :</label>
-                  <input type="texto" id="precio" name="precio" value={datos.precio}></input>
+                  <input type="texto" id="precio" name="precio" defaultValue={datos.precio}></input>
                   <input type="submit" value="CAMBIAR"  className="boton"/>
                   {/*<BotonIng dato="Cambiar" onClick={()=> setMensajeOculto(true)}/>*/}
               </form>
