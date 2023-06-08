@@ -1,11 +1,9 @@
 import  NavPedidos from "../verPedidos/NavPedidos";
-import BotonIng from "../home/Boton"
 import "./fomulario.css"
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function CargarMenu(){
-  console.log("me hiccieron clik")
   const [mensajeOculto,setMensajeOculto]=useState(true);
  
   const cargarMenu=async (event)=>{

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import NavPedidos from "../verPedidos/NavPedidos";
 import "./CambiarMenu.css";
+import swal from 'sweetalert';
+
 
 
 
@@ -44,9 +46,11 @@ export default function CambiarPrecio(){
             },
             body:formData
         })
-        
-        return setMensajeOculto(true),
-        alert("El Precio Fue Actualizado con EXITO")
+        //if(res.ok){
+            return setMensajeOculto(true),
+            swal("Bien Hecho","El Precio Fue Actualizado con EXITO","success")
+    
+
     }
 
 
@@ -56,7 +60,7 @@ export default function CambiarPrecio(){
             <>
             { mensajeOculto == true ?
               <form className="formulario" onSubmit={(event)=>{llamarInfo(event)}} method="GET">
-                    <label htmlFor="filtro">INGRESE MENU A CAMBIAR AQUI:</label>
+                    <label htmlFor="filtro" className="subtitulo">INGRESE MENU A CAMBIAR AQUI:</label>
                     <input className="input" placeholder="Ingrese nombre del menu" type="text" id="filtro"name="filtro">
                     </input>
                     <input type="submit" value="BUSCAR"  className="boton"/>
@@ -71,7 +75,7 @@ export default function CambiarPrecio(){
                   <label htmlFor="precio">Precio :</label>
                   <input type="texto" id="precio" name="precio" defaultValue={datos.precio}></input>
                   <input type="submit" value="CAMBIAR"  className="boton"/>
-                  {/*<BotonIng dato="Cambiar" onClick={()=> setMensajeOculto(true)}/>*/}
+                
               </form>
              }
             </>

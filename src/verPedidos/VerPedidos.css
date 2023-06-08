@@ -30,3 +30,6 @@ body{
     color: rgb(226, 128, 128);
     font-weight: bold;
 }
+.titulo{
+    text-decoration: underline;
+}

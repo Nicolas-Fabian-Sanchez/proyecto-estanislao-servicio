@@ -23,7 +23,7 @@ export default function VerPedidos(){
         <>
          <NavPedidos/>
          <header className="centrado" >
-             <h1>Mesas Ocupadas</h1>
+             <h1 className="titulo">Mesas Ocupadas</h1>
              <div className="mesas">
                 {datos.map((dato)=>{
                   return <Tarjetas key={datos} info={dato}/>
