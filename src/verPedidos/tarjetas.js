@@ -20,8 +20,9 @@ export default function Tarjetas({info}){
             .catch(error => console.log("HAY UN ERROR!!" +error))
             return seteliminado(true)
           }
-         
+          let llave = "ahgyt"
           let suma = 0
+          
           return(
                <>
                 <div className="contenedor">
@@ -31,13 +32,14 @@ export default function Tarjetas({info}){
                          <div className="conteiner">
                               <div>
                                    {info.pedido.map((info)=>{
-                                   return<Pedido key={info} data={info}/>
+                                        llave += "A1"
+                                        return<Pedido key={llave} data={info}/>
                                    })}
                               </div>
                               <div>
                                    {info.totalPagar.map((informacion)=>{
-                                   suma += parseInt(informacion)
-                                   return <ul>
+                                         suma += parseInt(informacion)
+                                         return <ul>
                                              <li className="precio"> $ {informacion}</li>
                                         </ul>
                                    })}

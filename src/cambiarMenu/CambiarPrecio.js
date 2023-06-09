@@ -39,16 +39,21 @@ export default function CambiarPrecio(){
              })
         //console.log(formData)
         /*let formData = new FormData(event.target);*/
-        await fetch ("https://api-estanislao.onrender.com/cambiarPrecio",{
+        const res=await fetch ("https://api-estanislao.onrender.com/cambiarPrecio",{
             method:"PUT",
             headers:{
                 'Content-Type': 'application/json'
             },
             body:formData
         })
-        //if(res.ok){
+        if(res.ok){
             return setMensajeOculto(true),
             swal("Bien Hecho","El Precio Fue Actualizado con EXITO","success")
+        }else{
+            return  swal("Error","a surgido un error , pruebe mas tarde","error"),
+            setMensajeOculto(true)
+        }
+
     
 
     }
@@ -79,8 +84,6 @@ export default function CambiarPrecio(){
               </form>
              }
             </>
-            
-
         </header>
     )      
 }

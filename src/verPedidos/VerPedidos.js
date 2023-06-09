@@ -12,13 +12,14 @@ export default function VerPedidos(){
              .then((res)=>res.json())
              .then((dato)=>setDatos(dato))
              .catch((error)=>document.write(`se produjo un error ${error}`))
-             console.log(datos)
+             
        }
+       
        useEffect(()=>{
         traerInfo();
 
        },[])
-       
+    
        return(
         <>
          <NavPedidos/>
@@ -26,7 +27,7 @@ export default function VerPedidos(){
              <h1 className="titulo">Mesas Ocupadas</h1>
              <div className="mesas">
                 {datos.map((dato)=>{
-                  return <Tarjetas key={datos} info={dato}/>
+                   return <Tarjetas key={dato._id} info={dato}/>
                   })}
               </div>
          </header>
