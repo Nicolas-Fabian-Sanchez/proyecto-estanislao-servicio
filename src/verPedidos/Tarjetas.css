@@ -76,3 +76,13 @@ p{
 .pedido{
     text-decoration: underline;
 }
+.precioul{
+    flex-direction: column;
+}
+.precioli{
+    margin-bottom: 1em;
+    list-style-type: none;
+    font-weight: bold;
+    color: rgb(226, 128, 128);
+    text-align: center;
+}

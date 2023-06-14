@@ -74,9 +74,9 @@ export default function CambiarPrecio(){
               <form  className="formulario"  onSubmit={(event)=>{cambiarInfo(event)}} >
                   <legend>INGRESE EL PRECIO ACTUALIZADO DEL PLATO:</legend>
                   <label htmlFor="tipo">Tipo :</label>
-                  <input type="texto" id="tipo" name="tipo" value={datos.tipo}></input>
+                  <input type="texto" id="tipo" name="tipo" value={datos.tipo} readOnly></input>
                   <label htmlFor="variedad">Variedad :</label>
-                  <input type="texto" id="variedad" name="variedad" value={datos.variedad} ></input>
+                  <input type="texto" id="variedad" name="variedad" value={datos.variedad} readOnly></input>
                   <label htmlFor="precio">Precio :</label>
                   <input type="texto" id="precio" name="precio" defaultValue={datos.precio}></input>
                   <input type="submit" value="CAMBIAR"  className="boton"/>
