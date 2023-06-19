@@ -16,9 +16,8 @@ export default function VerPedidos(){
        }
        
        useEffect(()=>{
-        traerInfo();
-
-       },[])
+        traerInfo()
+        },[])
     
        return(
         <>
