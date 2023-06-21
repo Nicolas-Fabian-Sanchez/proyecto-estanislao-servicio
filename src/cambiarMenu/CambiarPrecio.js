@@ -2,12 +2,12 @@ import { useState} from "react";
 import NavPedidos from "../verPedidos/NavPedidos";
 import "./CambiarMenu.css";
 import swal from 'sweetalert';
-import { redirect, useNavigate} from "react-router-dom";
+
 
 export default function CambiarPrecio(){
     const [mensajeOculto,setMensajeOculto]=useState(true);
     let [datos,setDatos] = useState();
-    let err=""
+    let err="";
     /*const[form,setForm]=useState({//para actualizar los datos del formulario
         tipo:'',
         variedad:'',
@@ -15,8 +15,8 @@ export default function CambiarPrecio(){
     });*/
     const llamarInfo=async(event)=>{
         event.preventDefault();
-        console.log(event.target[0].value)
-        let plato=event.target[0].value 
+        console.log(event.target[0].value);
+        let plato=event.target[0].value ;
         let response =await fetch(`https://api-estanislao.onrender.com/buscarMenu/${plato}`)
           .then((res)=>res.json())
           .then((dato)=>setDatos(dato))
