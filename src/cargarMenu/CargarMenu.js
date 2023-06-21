@@ -15,7 +15,6 @@ export default function CargarMenu(){
         "precio":event.target[2].value
          })
     console.log(form)
-    /*const form=JSON.stringify(new FormData(event.target))*/
     const response= await fetch("https://api-estanislao.onrender.com/cargarMenu",{
         method:'POST',
         body:form,
@@ -40,7 +39,6 @@ export default function CargarMenu(){
                   <input type="texto" id="variedad" name="variedad" ></input>
                   <label htmlFor="precio">Precio :</label>
                   <input type="texto" id="precio" name="precio"></input>
-                  {/*<BotonIng dato="Carga Menu" infoPath="/CargarMenu"/>*/}
                   <input type="submit" value="CARGAR" className="boton"/>
               </form>:
               <div className="formulario">

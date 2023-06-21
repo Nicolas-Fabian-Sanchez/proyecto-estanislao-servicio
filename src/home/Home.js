@@ -3,11 +3,12 @@ import swal from "sweetalert";
 import "./Home.css"
 import { useNavigate} from "react-router-dom";
 
-//import BotonIng from "./Boton"
+
 export default function Home(){
     const navigation=useNavigate();
     let res=""
     let error=""
+
     const ingresarUsu=async(event)=>{
         event.preventDefault();
        
@@ -21,7 +22,6 @@ export default function Home(){
             headers:{
                 'Content-Type': 'application/json',
             }
-           
         }) 
         .then((response)=>response.json())
         .then((response)=>res=response)
@@ -34,12 +34,10 @@ export default function Home(){
         }else if (res == "usuario registrado"){
             return navigation("/VerPedido");
         }else{
-            return navigation("/VerPedidos") , res
+            //localStorage.setItem("clave",res)
+            return navigation("/VerPedidos")
         }
     }
-   
-
-
     return(
         <header className="body">
             <form onSubmit={(event)=>{ingresarUsu(event)}}>
@@ -49,9 +47,7 @@ export default function Home(){
                 <label htmlFor="contrasenia">Ingrese su contraseña</label>
                 <input type="password" id="contrasenia" name="contrasenia" ></input>
                 <input type="submit" value="Ingresar" className="button" />
-                {/*<BotonIng dato="INGRESAR" infoPath="./VerPedidos"/>*/}
             </form>
         </header>
-        
     )
 }
