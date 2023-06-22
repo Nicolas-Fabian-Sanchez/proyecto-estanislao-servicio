@@ -1,4 +1,5 @@
 import {useEffect,useState} from "react";
+
 import "./VerPedidos.css";
 import  NavPedidos from "./NavPedidos.js"
 import Tarjetas from "./tarjetas";
@@ -16,8 +17,8 @@ export default function VerPedidos(){
        }
        
        useEffect(()=>{
-        traerInfo()
-        },[])
+            setTimeout(()=>{traerInfo()},9000)
+        },[datos])
     
        return(
         <>
