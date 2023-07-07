@@ -35,6 +35,7 @@ export default function Home(){
             return navigation("/VerPedido");
         }else{
             //localStorage.setItem("clave",res)
+            console.log(res)//lo hice ahora para que veas que lo manda
             return navigation("/VerPedidos")
         }
     }

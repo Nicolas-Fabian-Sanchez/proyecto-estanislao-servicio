@@ -42,7 +42,7 @@ export default function Tarjetas({info}){
                                    <ul className="precioul">
                                         {info.totalPagar.map((informacion)=>{
                                          suma += parseInt(informacion)
-                                         return <li  key={informacion}className="precioli">${informacion}</li>
+                                         return <li  key={suma}className="precioli">${informacion}</li>
                                         })}
                                    </ul>
                               </div>
